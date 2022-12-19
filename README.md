@@ -1,4 +1,4 @@
 # twitter-quote-api
-Automatic tweeting system using python. /n
-Random generated quotes from some API. /n
+Automatic tweeting system using python.\
+Random generated quotes from some API.\
 under development...
