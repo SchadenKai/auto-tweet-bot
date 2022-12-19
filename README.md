@@ -1,2 +1,4 @@
 # twitter-quote-api
-Auto posting quotes in a twitter account 
+Automatic tweeting system using python.
+Random generated quotes from some API. 
+under development...
