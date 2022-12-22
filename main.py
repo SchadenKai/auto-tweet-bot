@@ -22,7 +22,7 @@ def tweet(api_arg: tweepy.API, message: str, image_path=None):
 
 def fetch_data_api(category: str):
     api_url = "https://api.api-ninjas.com/v1/quotes?category={}".format(category)
-    response = requests.get(api_url, headers={'X-Api-Key': 'RiDy+r8Y+ulhfuWumaulSg==C0q8YF9hfQIRdXud'})
+    response = requests.get(api_url, headers={'X-Api-Key': keys.quotes_api_key})
 
     if response.status_code == requests.codes.ok:
         data = response.text
