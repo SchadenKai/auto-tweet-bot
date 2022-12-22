@@ -1,5 +1,7 @@
 import tweepy
 from config import credential_keys as keys
+import requests
+import json
 
 
 def api():
@@ -18,6 +20,23 @@ def tweet(api_arg: tweepy.API, message: str, image_path=None):
     print("Tweeted successfully!")
 
 
+def fetch_data_api(category: str):
+    api_url = "https://api.api-ninjas.com/v1/quotes?category={}".format(category)
+    response = requests.get(api_url, headers={'X-Api-Key': 'RiDy+r8Y+ulhfuWumaulSg==C0q8YF9hfQIRdXud'})
+
+    if response.status_code == requests.codes.ok:
+        data = response.text
+        data_json = json.loads(data)
+        data_dict = data_json[0]                          # traverse into list item (dictionary is stored inside a list)
+        print("Successfully retrieved some data..." )
+        return data_dict
+    else:
+        print("Error:", response.status_code, response.text)
+        return "Error"
+
+
 if __name__ == "__main__":
     api = api()
-    tweet(api, "Testing sample kung nagana", "chopper_img.webp")
+    data = fetch_data_api("success")
+    tweet(api, "\"" + data["quote"] + "\"" + "\n\n- " + data["author"])
+
