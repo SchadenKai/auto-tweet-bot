@@ -1,4 +1,4 @@
 # Default ignored files
 /shelf/
 /workspace.xml
-credential_keys.py
+../config/credential_keys.py
